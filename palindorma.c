@@ -43,32 +43,25 @@ int main()
 //Definizione della funzione "isPalindromo()".
 int isPalindromo(const int vet[],int size)
 {
-	//Variabile contenente l'array invertito.
-	int palVet[size];
 	//Indici necessari all'utilizzo degli array.
 	int i,j;
-	/*Variabile "palindromo", contenente l'esito del controllo.
-	1=>Array Palindromo.
-	0=>Array non palindromo.
-	*/
+	//Variabile booleana "palindromo", inizializzata a 1.
 	int palindromo = 1;
-	//Caricamento dell'array inverso.
-	j=0;
-	for(i=size-1;i>=0;i--)
-	{
-		palVet[j] = vet[i];
-		j++;
-	}
-
-	i = 0;
-	//Ciclo atto a controllare se l'array è palindromo.
+	//Indice "j", che parte dal fondo dell'array.
+	j=size-1;
+	//Indice "i", che parte dalla cima dell'array.
+	i=0;
+	/*Ciclo di controllo.
+	Il ciclo viene interrotto se l'array è scansionato nella sua interezza
+	o se è stato riscontrato che non è palindromo.*/
 	while(i<size && palindromo)
 	{
-		if(vet[i]!=palVet[i])
+		if(vet[i]!=vet[j])
 		{
 			palindromo = 0;
 		}
 		i++;
+		j--;
 	}
 	//Restituzione dell'esito del controllo.
 	return palindromo;
